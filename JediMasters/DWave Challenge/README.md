@@ -38,13 +38,13 @@ In order to make annealing process to only consider valid paths we are going to 
 
 The first constraint is to make every city appear exactly once in a route:
 <pre>
-A Σ<sub>city</sub>(1 - Σ<sub>step</sub>(x<sub>city,step</sub>))
+A Σ<sub>city</sub>(1 - Σ<sub>step</sub>(x<sub>city,step</sub>))<sup>2</sup>
 </pre>
 Here **A** is some constant, the first sum runs across columns in the matrix above (ensuring every city gets this constraint applied to it), the second sum runs accross all binary values in a given column (ensuring every city is visited exactly once). Minimum of this function occurres when every city gets included exactly once into a route.
 
 The second constraint is to make exactly one city to be visited in one step of the route:
 <pre>
-A Σ<sub>step</sub>(1 - Σ<sub>city</sub>(x<sub>city,step</sub>))
+A Σ<sub>step</sub>(1 - Σ<sub>city</sub>(x<sub>city,step</sub>))<sup>2</sup>
 </pre>
 Here **A** is the same constant as above, the first sum runs across rows in the matrix above (ensuring every step gets this constraint applied to), the second sum runs accross all binary values in a given row (ensuring exactly one city is visited in a given step). Minimum of this function occurres when every step involves visiting exactly one city.
 
